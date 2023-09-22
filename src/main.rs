@@ -137,9 +137,9 @@ fn main() {
                     .any(|f| e.name.contains(f) || fname.contains(f));
                 let status = if e.looks_done() {
                     exercises_done += 1;
-                    "完成"
+                    "已完成"
                 } else {
-                    "待办"
+                    "待完成"
                 };
                 let solve_cond = {
                     (e.looks_done() && solved)

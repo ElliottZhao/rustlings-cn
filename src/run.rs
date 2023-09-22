@@ -45,7 +45,7 @@ fn compile_and_run(exercise: &Exercise) -> Result<(), ()> {
         Err(output) => {
             progress_bar.finish_and_clear();
             warn!(
-                "{} 编译失败！，编译器错误消息：\n",
+                "{} 编译失败！编译器错误消息：\n",
                 exercise
             );
             println!("{}", output.stderr);
@@ -67,7 +67,7 @@ fn compile_and_run(exercise: &Exercise) -> Result<(), ()> {
             println!("{}", output.stdout);
             println!("{}", output.stderr);
 
-            warn!("运行 {} 发生了错误", exercise);
+            warn!("运行 {} 但出现错误", exercise);
             Err(())
         }
     }

@@ -33,7 +33,7 @@ impl RustAnalyzerProject {
     pub fn write_to_disk(&self) -> Result<(), std::io::Error> {
         std::fs::write(
             "./rust-project.json",
-            serde_json::to_vec(&self).expect("Failed to serialize to JSON"),
+            serde_json::to_vec(&self).expect("无法序列化为 JSON"),
         )?;
         Ok(())
     }
@@ -84,7 +84,7 @@ impl RustAnalyzerProject {
 
         let toolchain = whitespace_iter.next().unwrap_or(&toolchain);
 
-        println!("Determined toolchain: {}\n", &toolchain);
+        println!("确定的工具链：{}\n", &toolchain);
 
         self.sysroot_src = (std::path::Path::new(toolchain)
             .join("lib")

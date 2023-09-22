@@ -19,8 +19,8 @@ pub fn verify<'a>(
     let mut percentage = num_done as f32 / total as f32 * 100.0;
     bar.set_style(
         ProgressStyle::default_bar()
-            .template("Progress: [{bar:60.green/red}] {pos}/{len} {msg}")
-            .expect("Progressbar template should be valid!")
+            .template("进度: [{bar:60.green/red}] {pos}/{len} {msg}")
+            .expect("进度条模板应该有效！")
             .progress_chars("#>-"),
     );
     bar.set_position(num_done as u64);
@@ -56,7 +56,7 @@ pub fn test(exercise: &Exercise, verbose: bool) -> Result<(), ()> {
 // Invoke the rust compiler without running the resulting binary
 fn compile_only(exercise: &Exercise, success_hints: bool) -> Result<bool, ()> {
     let progress_bar = ProgressBar::new_spinner();
-    progress_bar.set_message(format!("Compiling {exercise}..."));
+    progress_bar.set_message(format!("编译 {exercise} 中……"));
     progress_bar.enable_steady_tick(Duration::from_millis(100));
 
     let _ = compile(exercise, &progress_bar)?;
@@ -68,19 +68,19 @@ fn compile_only(exercise: &Exercise, success_hints: bool) -> Result<bool, ()> {
 // Compile the given Exercise and run the resulting binary in an interactive mode
 fn compile_and_run_interactively(exercise: &Exercise, success_hints: bool) -> Result<bool, ()> {
     let progress_bar = ProgressBar::new_spinner();
-    progress_bar.set_message(format!("Compiling {exercise}..."));
+    progress_bar.set_message(format!("编译 {exercise} 中……"));
     progress_bar.enable_steady_tick(Duration::from_millis(100));
 
     let compilation = compile(exercise, &progress_bar)?;
 
-    progress_bar.set_message(format!("Running {exercise}..."));
+    progress_bar.set_message(format!("运行 {exercise} 中……"));
     let result = compilation.run();
     progress_bar.finish_and_clear();
 
     let output = match result {
         Ok(output) => output,
         Err(output) => {
-            warn!("Ran {} with errors", exercise);
+            warn!("运行 {} 但出现错误", exercise);
             println!("{}", output.stdout);
             println!("{}", output.stderr);
             return Err(());
@@ -103,7 +103,7 @@ fn compile_and_test(
     success_hints: bool,
 ) -> Result<bool, ()> {
     let progress_bar = ProgressBar::new_spinner();
-    progress_bar.set_message(format!("Testing {exercise}..."));
+    progress_bar.set_message(format!("测试 {exercise} 中……"));
     progress_bar.enable_steady_tick(Duration::from_millis(100));
 
     let compilation = compile(exercise, &progress_bar)?;
@@ -123,7 +123,7 @@ fn compile_and_test(
         }
         Err(output) => {
             warn!(
-                "Testing of {} failed! Please try again. Here's the output:",
+                "{} 测试失败！请再试一次。这是输出：",
                 exercise
             );
             println!("{}", output.stdout);
@@ -145,7 +145,7 @@ fn compile<'a>(
         Err(output) => {
             progress_bar.finish_and_clear();
             warn!(
-                "Compiling of {} failed! Please try again. Here's the output:",
+                "{} 编译失败！请再试一次。这是输出：",
                 exercise
             );
             println!("{}", output.stderr);
@@ -164,22 +164,22 @@ fn prompt_for_completion(
         State::Pending(context) => context,
     };
     match exercise.mode {
-        Mode::Compile => success!("Successfully ran {}!", exercise),
-        Mode::Test => success!("Successfully tested {}!", exercise),
-        Mode::Clippy => success!("Successfully compiled {}!", exercise),
+        Mode::Compile => success!("成功运行{}！", exercise),
+        Mode::Test => success!("成功测试{}！", exercise),
+        Mode::Clippy => success!("成功编译{}！", exercise),
     }
 
     let no_emoji = env::var("NO_EMOJI").is_ok();
 
     let clippy_success_msg = if no_emoji {
-        "The code is compiling, and Clippy is happy!"
+        "代码正在编译，Clippy 很高兴！"
     } else {
-        "The code is compiling, and 📎 Clippy 📎 is happy!"
+        "代码正在编译，📎 Clippy 📎很高兴！"
     };
 
     let success_msg = match exercise.mode {
-        Mode::Compile => "The code is compiling!",
-        Mode::Test => "The code is compiling, and the tests pass!",
+        Mode::Compile => "代码正在编译！",
+        Mode::Test => "代码正在编译，测试通过！",
         Mode::Clippy => clippy_success_msg,
     };
     println!();
@@ -191,23 +191,22 @@ fn prompt_for_completion(
     println!();
 
     if let Some(output) = prompt_output {
-        println!("Output:");
+        println!("输出：");
         println!("{}", separator());
         println!("{output}");
         println!("{}", separator());
         println!();
     }
     if success_hints {
-        println!("Hints:");
+        println!("提示：");
         println!("{}", separator());
         println!("{}", exercise.hint);
         println!("{}", separator());
         println!();
     }
 
-    println!("You can keep working on this exercise,");
     println!(
-        "or jump into the next one by removing the {} comment:",
+        "您可以继续进行此练习，或者通过删除 {} 注释跳到下一个练习：",
         style("`I AM NOT DONE`").bold()
     );
     println!();
