@@ -5,15 +5,14 @@ name = "intro1"
 path = "exercises/intro/intro1.rs"
 mode = "compile"
 hint = """
-Remove the I AM NOT DONE comment in the exercises/intro/intro1.rs file
-to move on to the next exercise."""
+删除 exercises/intro/intro1.rs 文件中的 I AM NOT DONE 注释以继续下一个练习。"""
 
 [[exercises]]
 name = "intro2"
 path = "exercises/intro/intro2.rs"
 mode = "compile"
 hint = """
-Add an argument after the format string."""
+在格式字符串后添加参数。"""
 
 # VARIABLES
 
@@ -22,21 +21,19 @@ name = "variables1"
 path = "exercises/variables/variables1.rs"
 mode = "compile"
 hint = """
-The declaration in the first line in the main function is missing a keyword
-that is needed in Rust to create a new variable binding."""
+main 函数第一行的声明缺少 Rust 中创建新变量绑定所需的关键字。"""
 
 [[exercises]]
 name = "variables2"
 path = "exercises/variables/variables2.rs"
 mode = "compile"
 hint = """
-The compiler message is saying that Rust cannot infer the type that the
-variable binding `x` has with what is given here.
-What happens if you annotate the first line in the main function with a type annotation?
-What if you give x a value?
-What if you do both?
-What type should x be, anyway?
-What if x is the same type as 10? What if it's a different type?"""
+编译器消息表明 Rust 无法根据此处给出的内容推断变量绑定“x”的类型。
+如果使用类型注释来注释 main 函数中的第一行会发生什么？
+如果你给 x 一个值会怎样？
+如果你两者都做会怎样？
+x 到底应该是什么类型？
+如果 x 与 10 类型相同会怎样？ 如果是不同类型会怎样？"""
 
 [[exercises]]
 name = "variables3"
