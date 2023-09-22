@@ -103,22 +103,20 @@ name = "functions3"
 path = "exercises/functions/functions3.rs"
 mode = "compile"
 hint = """
-This time, the function *declaration* is okay, but there's something wrong
-with the place where we're calling the function.
-As a reminder, you can freely play around with different solutions in Rustlings!
-Watch mode will only jump to the next exercise if you remove the I AM NOT DONE comment."""
+这次，函数*声明*没问题，但是我们调用函数的地方有问题。
+提醒一下，您可以在 Rustlings 中自由尝试不同的解决方案！
+如果您删除I AM NOT DONE注释，观察模式只会跳转到下一个练习。"""
 
 [[exercises]]
 name = "functions4"
 path = "exercises/functions/functions4.rs"
 mode = "compile"
 hint = """
-The error message points to the function `sale_price` and says it expects a type
-after the `->`. This is where the function's return type should be -- take a look at
-the `is_even` function for an example!
+错误消息指向函数 `sale_price` 并表示它需要 `->` 之后的类型。 这就是函数的返回
+类型应该在的地方——看一下 `is_even` 函数的例子！
 
-Also: Did you figure out that, technically, u32 would be the more fitting type
-for the prices here, since they can't be negative? If so, kudos!"""
+另外：您是否发现，从技术上讲，u32 是更适合此处价格的类型，因为它们不能为负数？
+如果是这样，提出表扬！"""
 
 [[exercises]]
 name = "functions5"
