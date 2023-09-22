@@ -1,9 +1,8 @@
 // variables1.rs
 //
-// Make me compile!
+// 让我通过编译！
 //
-// Execute `rustlings hint variables1` or use the `hint` watch subcommand for a
-// hint.
+// 执行 `rustlings hint variables1` 或使用 `hint`watch 子命令来获取提示。
 
 // I AM NOT DONE
 
