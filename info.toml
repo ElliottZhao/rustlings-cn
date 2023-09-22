@@ -51,37 +51,32 @@ name = "variables4"
 path = "exercises/variables/variables4.rs"
 mode = "compile"
 hint = """
-In Rust, variable bindings are immutable by default. But here we're trying
-to reassign a different value to x! There's a keyword we can use to make
-a variable binding mutable instead."""
+在 Rust 中，变量绑定默认是不可变的。 但在这里我们尝试为 x 重新分配一个不同的值！ 我们可
+以使用一个关键字来使变量绑定可变。"""
 
 [[exercises]]
 name = "variables5"
 path = "exercises/variables/variables5.rs"
 mode = "compile"
 hint = """
-In variables4 we already learned how to make an immutable variable mutable
-using a special keyword. Unfortunately this doesn't help us much in this exercise
-because we want to assign a different typed value to an existing variable. Sometimes
-you may also like to reuse existing variable names because you are just converting
-values to different types like in this exercise.
-Fortunately Rust has a powerful solution to this problem: 'Shadowing'!
-You can read more about 'Shadowing' in the book's section 'Variables and Mutability':
+在 variables4 中，我们已经学习了如何使用特殊关键字使不可变变量可变。 不幸的是，这在本
+练习中没有多大帮助，因为我们想要为现有变量分配不同类型的值。 有时您可能还想重用现有的
+变量名称，因为您只是将值转换为不同的类型，就像本练习中一样。
+幸运的是，Rust 有一个强大的解决方案来解决这个问题：“Shadowing”！
+您可以在本书的“Variables and Mutability”部分中阅读有关“Shadowing”的更多信息：
 https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing
-Try to solve this exercise afterwards using this technique."""
+之后尝试使用这种技术来解决这个练习。"""
 
 [[exercises]]
 name = "variables6"
 path = "exercises/variables/variables6.rs"
 mode = "compile"
 hint = """
-We know about variables and mutability, but there is another important type of
-variable available: constants.
-Constants are always immutable and they are declared with keyword 'const' rather
-than keyword 'let'.
-Constants types must also always be annotated.
+我们知道变量和可变性，但还有另一种重要的变量类型：常量。
+常量始终是不可变的，它们是用关键字“const”而不是关键字“let”声明的。
+常量类型也必须始终带有注释。
 
-Read more about constants and the differences between variables and constants under 'Constants' in the book's section 'Variables and Mutability':
+阅读本书“Variables and Mutability”部分中“Constants”下有关常量以及变量和常量之间差异的更多信息：
 https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#constants
 """
 
@@ -92,18 +87,16 @@ name = "functions1"
 path = "exercises/functions/functions1.rs"
 mode = "compile"
 hint = """
-This main function is calling a function that it expects to exist, but the
-function doesn't exist. It expects this function to have the name `call_me`.
-It expects this function to not take any arguments and not return a value.
-Sounds a lot like `main`, doesn't it?"""
+该 main 函数正在调用一个它期望存在的函数，但该函数不存在。 它期望该函数的名称为“call_me”。
+它期望该函数不接受任何参数并且不返回值。
+听起来很像“main”，不是吗？"""
 
 [[exercises]]
 name = "functions2"
 path = "exercises/functions/functions2.rs"
 mode = "compile"
 hint = """
-Rust requires that all parts of a function's signature have type annotations,
-but `call_me` is missing the type annotation of `num`."""
+Rust 要求函数签名的所有部分都具有类型注释，但“call_me”缺少“num”的类型注释。"""
 
 [[exercises]]
 name = "functions3"
