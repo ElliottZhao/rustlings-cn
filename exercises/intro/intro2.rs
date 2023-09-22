@@ -1,9 +1,8 @@
 // intro2.rs
 //
-// Make the code print a greeting to the world.
+// 让代码打印出对世界的问候。
 //
-// Execute `rustlings hint intro2` or use the `hint` watch subcommand for a
-// hint.
+// 执行 `rusdlingshint intro2` 或使用 `hint` watch 子命令来获取提示。
 
 // I AM NOT DONE
 
