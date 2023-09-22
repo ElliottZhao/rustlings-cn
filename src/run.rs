@@ -36,7 +36,7 @@ pub fn reset(exercise: &Exercise) -> Result<(), ()> {
 // This is strictly for non-test binaries, so output is displayed
 fn compile_and_run(exercise: &Exercise) -> Result<(), ()> {
     let progress_bar = ProgressBar::new_spinner();
-    progress_bar.set_message(format!("Compiling {exercise}..."));
+    progress_bar.set_message(format!("编译 {exercise} 中……"));
     progress_bar.enable_steady_tick(Duration::from_millis(100));
 
     let compilation_result = exercise.compile();
@@ -45,7 +45,7 @@ fn compile_and_run(exercise: &Exercise) -> Result<(), ()> {
         Err(output) => {
             progress_bar.finish_and_clear();
             warn!(
-                "Compilation of {} failed!, Compiler error message:\n",
+                "{} 编译失败！，编译器错误消息：\n",
                 exercise
             );
             println!("{}", output.stderr);
@@ -53,21 +53,21 @@ fn compile_and_run(exercise: &Exercise) -> Result<(), ()> {
         }
     };
 
-    progress_bar.set_message(format!("Running {exercise}..."));
+    progress_bar.set_message(format!("运行 {exercise} 中……"));
     let result = compilation.run();
     progress_bar.finish_and_clear();
 
     match result {
         Ok(output) => {
             println!("{}", output.stdout);
-            success!("Successfully ran {}", exercise);
+            success!("成功运行 {}", exercise);
             Ok(())
         }
         Err(output) => {
             println!("{}", output.stdout);
             println!("{}", output.stderr);
 
-            warn!("Ran {} with errors", exercise);
+            warn!("运行 {} 发生了错误", exercise);
             Err(())
         }
     }
